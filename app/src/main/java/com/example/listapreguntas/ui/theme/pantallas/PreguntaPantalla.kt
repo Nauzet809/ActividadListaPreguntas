@@ -148,7 +148,7 @@ fun CrearPantalla(listaPregunta : List<Pregunta>, estadistica : EstadisticaPerso
                 resultado = ""
                 btnPulsado = false
             }, R.drawable.atras, stringResource(R.string.anterior),
-                false)
+                false, btnPulsado)
 
             BotonMovimiento({
                 indice = listaPregunta.indices.random()
@@ -157,7 +157,7 @@ fun CrearPantalla(listaPregunta : List<Pregunta>, estadistica : EstadisticaPerso
                 resultado = ""
                 btnPulsado = false
             }, R.drawable.random, stringResource(R.string.aleatorio),
-                true)
+                true, btnPulsado)
 
             BotonMovimiento({
                 if(fondoBtn1 != fondoBtn)indice = cambiarIndice(indice, true)
@@ -166,7 +166,7 @@ fun CrearPantalla(listaPregunta : List<Pregunta>, estadistica : EstadisticaPerso
                 btnPulsado = false
                 resultado = ""
             }, R.drawable.derecha, stringResource(R.string.siguiente),
-                true)
+                true, btnPulsado)
         }
 
 
@@ -295,7 +295,7 @@ fun CrearPreguntasSpeedRun(listaPregunta : List<Pregunta>, estadistica : Estadis
                 resultado = ""
                 btnPulsado = false
             }, R.drawable.atras, stringResource(R.string.anterior),
-                false)
+                false, btnPulsado)
 
             BotonMovimiento({
                 if(fondoBtn1 != fondoBtn)indice = cambiarIndice(indice, true)
@@ -304,7 +304,7 @@ fun CrearPreguntasSpeedRun(listaPregunta : List<Pregunta>, estadistica : Estadis
                 btnPulsado = false
                 resultado = ""
             }, R.drawable.derecha, stringResource(R.string.siguiente),
-                true)
+                true, btnPulsado)
         }
 
 
@@ -340,17 +340,16 @@ fun CrearPreguntasExamen(listaPregunta : List<Pregunta>, pila : NavBackStack<Nav
     val textoError = stringResource(R.string.has_errado)
     var resultado by remember { mutableStateOf("") }
     var colorTexto by remember { mutableStateOf(Color.White) }
-    var acertado by remember { mutableStateOf(0) }
+    var acertado by remember { mutableIntStateOf(0) }
 
     fun aciertos() : Int{
-        return ((acertado.toFloat()/listaPregunta.size)*100).toInt()
+        return ((acertado.toFloat()/listaPregunta.size-1)*100).toInt()
     }
 
 
     fun cambiarIndice(indice : Int) : Int{
-        var i = indice
         if((indice < listaPregunta.size -1)) {
-            return i + 1
+            return indice + 1
         }
         return 0
     }
@@ -438,7 +437,7 @@ fun CrearPreguntasExamen(listaPregunta : List<Pregunta>, pila : NavBackStack<Nav
                 btnPulsado = false
                 resultado = ""
             }, R.drawable.derecha, stringResource(R.string.siguiente),
-                true)
+                true, btnPulsado)
         }
 
 

@@ -41,7 +41,9 @@ fun inicializarYCargar(contexto : Context) : List<Pregunta> {
             val partes = linea.split(";")
             Pregunta(
                 pregunta = partes[0],
-                imagen = partes[1].toInt().takeIf { it != 0 },
+                imagen = partes[1]
+                    .toIntOrNull()
+                    ?.takeIf { it != 0 },
                 respuesta = partes[2].toBoolean()
             )
         }.toList()

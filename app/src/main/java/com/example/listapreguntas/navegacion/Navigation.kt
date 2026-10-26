@@ -1,6 +1,11 @@
 package com.example.listapreguntas.navegacion
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.toMutableStateList
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -21,7 +26,8 @@ fun NavDisplay(
     listaPregunta : List<Pregunta>,
     estadistica : EstadisticaPersonal
 ) {
-    var estadisticaAux = estadistica
+    var estadisticaAux by remember { mutableStateOf(estadistica) }
+    val listaAux = remember { listaPregunta.toMutableStateList() }
     NavDisplay(
         backStack = pila,
         onBack = {pila.removeLastOrNull()},
@@ -37,25 +43,23 @@ fun NavDisplay(
             }
 
             entry<PreguntasBasicas> {
-                estadisticaAux = CrearPantalla(listaPregunta, estadistica)
+                estadisticaAux = CrearPantalla(listaAux, estadisticaAux)
             }
 
             entry<PreguntaExamen> {
-                CrearPreguntasExamen(listaPregunta, pila)
+                CrearPreguntasExamen(listaAux, pila)
             }
 
             entry<PreguntaSpeedRun> {
-                estadisticaAux = CrearPreguntasSpeedRun(listaPregunta, estadistica)
+                estadisticaAux = CrearPreguntasSpeedRun(listaAux, estadisticaAux)
             }
 
             entry<Estadisticas> {
-                CrearEstadisticas(
-                    estadistica
-                )
+                CrearEstadisticas(estadisticaAux)
             }
 
             entry<Escribir> {
-                estadisticaAux = CrearEscribir(estadistica)
+                CrearEscribir(estadisticaAux, listaAux, pila)
             }
 
         }

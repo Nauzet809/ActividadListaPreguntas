@@ -24,11 +24,11 @@ fun CrearEstadisticas(estadistica : EstadisticaPersonal){
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.Start
     ) {
-        textoIndicado(stringResource(R.string.aciertos, estadistica.aciertos))
-        textoIndicado(stringResource(R.string.errores, estadistica.errores))
-        textoIndicado(stringResource(R.string.clicks, estadistica.clicks()))
-        textoIndicado(stringResource(R.string.porcentageaciertos, estadistica.procentageAciertos()))
-        estadistica.preguntasTotales?.let { textoIndicado(stringResource(R.string.preguntas_totales, it)) }
+        textoIndicado("Aciertos: ${estadistica.aciertos}")
+        textoIndicado("Errores: ${estadistica.errores}")
+        textoIndicado("Clicks: ${estadistica.clicks()}")
+        textoIndicado("% Aciertos: ${estadistica.procentageAciertos()} %")
+       textoIndicado("Preguntas totales:  ${estadistica.preguntasTotales}")
     }
 }
 

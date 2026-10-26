@@ -33,13 +33,14 @@ import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 
 @Composable
-fun BotonMovimiento(aumentarIndice : () -> Unit, icono : Int, texto : String, aumentar : Boolean){
+fun BotonMovimiento(aumentarIndice : () -> Unit, icono : Int, texto : String, aumentar : Boolean, activo : Boolean){
     Button(
         modifier = Modifier
             .padding(5.dp),
         onClick = {
             aumentarIndice()
-        }
+        },
+        enabled = activo
     ) {
         Row(
             horizontalArrangement = Arrangement.Center
