@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ListaPreguntas</string>
+    <string name="has_acertado">Has acertado</string>
+    <string name="has_errado">Has errado</string>
+    <string name="has_sacado">Has sacado : %1$d</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="anterior">Anterior</string>
+    <string name="aleatorio">Aleatorio</string>
+    <string name="preguntas">Preguntas</string>
+    <string name="estadisticas">Estadisticas</string>
+    <string name="escribir">Escribir</string>
+    <string name="pregunta_examen">Pregunta Examen</string>
+    <string name="pregunta_speedrun">Pregunta SpeedRun</string>
+    <string name="preguntas_basicas">Preguntas Basicas</string>
+    <string name="aciertos">Aciertos :           %1$d</string>
+    <string name="errores">Errores :            %1$d</string>
+    <string name="clicks">Clicks :             %1$d</string>
+    <string name="porcentageaciertos">% Aciertos :         %1$s %</string>
+    <string name="preguntas_totales">Preguntas totales :  %1$d</string>
+    <string name="pregunta">Pregunta</string>
+    <string name="cleopatra_vii_era_de_origen_puramente_egipcio">Cleopatra VII era de origen puramente egipcio?</string>
+    <string name="guardar">Guardar</string>
+    <string name="imagen_de_la_pregunta">Imagen de la pregunta</string>
+    <string name="volver_a_jugar">Volver a jugar!</string>
+</resources>
